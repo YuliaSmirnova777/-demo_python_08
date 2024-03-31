@@ -1,0 +1,40 @@
+class Vehicle:
+    def __init__(self, speed=0):
+        self._speed = speed
+
+    def get_speed(self):
+        return self._speed
+
+    def set_speed(self, speed):
+        self._speed = speed
+
+class Car(Vehicle):
+    def __init__(self, speed=0, brand=""):
+        super().__init__(speed)
+        self.brand = brand
+
+    def accelerate(self, amount):
+        self.set_speed(self.get_speed() + amount)
+
+class Motorcycle(Vehicle):
+    def __init__(self, speed=0, color=""):
+        super().__init__(speed)
+        self.color = color
+
+    def wheelie(self):
+        print("Performing a wheelie!")
+
+# Создаем экземпляры
+car1 = Car(100, "Toyota")
+motorcycle1 = Motorcycle(80, "Red")
+
+# Используем методы для изменения скорости
+car1.accelerate(20)
+motorcycle1.accelerate(10)
+
+# Получаем значения скорости
+print(f"Car speed: {car1.get_speed()} km/h")
+print(f"Motorcycle speed: {motorcycle1.get_speed()} km/h")
+
+# Вызываем метод уникальный для мотоцикла
+motorcycle1.wheelie()
